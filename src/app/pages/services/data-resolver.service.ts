@@ -24,7 +24,7 @@ export class DataResolverService implements Resolve<IResolvedData> {
     const clients$ = this.dataServcie.getClients();
     const accounts$ = this.dataServcie.getAccounts();
 
-    const combined$ = combineLatest(clients$, accounts$,
+    const combine$ = combineLatest(clients$, accounts$,
       (clients, accounts) => {
         return <IResolvedData>{ clients, accounts };
       })
@@ -39,7 +39,7 @@ export class DataResolverService implements Resolve<IResolvedData> {
         }),
         first()
       );
-    return combined$;
+    return combine$;
   }
 
 }
