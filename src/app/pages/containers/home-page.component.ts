@@ -3,11 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'bc-home-page',
   template: `
-    <p>
-      home-page works!
-    </p>
+    <div class="main">
+      <h2>Home Page</h2>
+    </div>
   `,
-  styleUrls: ['./home-page.component.scss']
+  styles: [`
+    .main {
+      margin-left: 10px;
+    }
+  `]
 })
 export class HomePageComponent implements OnInit {
 

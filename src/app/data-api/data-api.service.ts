@@ -48,8 +48,8 @@ export class DataApiService implements AbstractDataApiService {
     timer(200)
       .pipe(
         map( value => {
-          const cl1: IClient = { id: 'cl1'};
-          const cl2: IClient = { id: 'cl2'};
+          const cl1: IClient = { id: 'Client 1'};
+          const cl2: IClient = { id: 'Client 2'};
           return [cl1, cl2];
         })
       )
@@ -60,8 +60,8 @@ export class DataApiService implements AbstractDataApiService {
     timer(300)
       .pipe(
         map( value => {
-          const ac1: IAccount = { id: 'ac1'};
-          const ac2: IAccount = { id: 'ac2'};
+          const ac1: IAccount = { id: 'Account 1'};
+          const ac2: IAccount = { id: 'Account 2'};
           return [ac1, ac2];
         })
       )

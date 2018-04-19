@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { DataApiModule } from './data-api/data-api.module';
+import { CustomMaterialModule } from './shared/custom-material/custom-material.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DataApiModule } from './data-api/data-api.module';
     BrowserModule,
     DataApiModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

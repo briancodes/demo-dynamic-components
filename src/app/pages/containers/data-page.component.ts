@@ -6,13 +6,23 @@ import { IClient, IAccount } from '../../data-api/data-api.service';
 @Component({
   selector: 'bc-data-page',
   template: `
-    <p>
-      data-page works!
-      {{clients}}
-      {{accounts}}
-    </p>
+    <div class="main">
+      <h2>Data Page</h2>
+      <h4>Clients</h4>
+      <div *ngFor="let client of clients">
+        {{client.id}}
+      </div>
+      <h4>Accounts</h4>
+      <div *ngFor="let account of accounts">
+        {{account.id}}
+      </div>
+    </div>
   `,
-  styleUrls: ['./data-page.component.scss']
+  styles: [`
+    .main {
+      margin-left: 10px;
+    }
+  `]
 })
 export class DataPageComponent implements OnInit {
 
