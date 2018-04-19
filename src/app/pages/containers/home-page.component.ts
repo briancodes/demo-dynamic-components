@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.clear();
   }
 
 }

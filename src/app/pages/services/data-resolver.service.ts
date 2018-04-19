@@ -15,7 +15,9 @@ export interface IResolvedData {
 @Injectable()
 export class DataResolverService implements Resolve<IResolvedData> {
 
-  constructor(private dataServcie: AbstractDataApiService) { }
+  constructor(private dataServcie: AbstractDataApiService) {
+
+  }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IResolvedData> {
 

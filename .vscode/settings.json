@@ -24,6 +24,6 @@
       "src/environments":true,
       "src/main.ts":true,
       "src/polyfills.ts":true,
-      "src/styles.scss":false,
+      "src/styles.scss":true,
     }
 }
