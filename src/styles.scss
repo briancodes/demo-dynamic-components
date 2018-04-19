@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~normalize.css';
+@import '~normalize.css/normalize.css'; // full path or StackBlitz gives errors
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
