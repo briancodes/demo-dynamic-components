@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IResolvedData } from '../services/data-resolver.service';
 
 @Component({
   selector: 'bc-home-page',
   template: `
     <div class="main">
       <h2>Home Page</h2>
+      <div [innerHTML]="markdownHTML | trustedHTML"></div>
     </div>
   `,
   styles: [`
@@ -15,10 +18,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  markdownHTML: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('Home Page');
+    this.route.data
+      .subscribe((data: { resolvedData: IResolvedData }) => {
+        console.log('Home Page, route.data.subscribe: ', data.resolvedData);
+        this.markdownHTML = data.resolvedData.markedHtml;
+      });
   }
 
 }
