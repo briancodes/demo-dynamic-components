@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
-import { DataApiModule } from './data-api/data-api.module';
 import { CustomMaterialModule } from './shared/custom-material/custom-material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CustomMaterialModule } from './shared/custom-material/custom-material.m
   ],
   imports: [
     BrowserModule,
-    DataApiModule,
+    HttpClientModule,
     AppRoutingModule,
     PagesModule,
     CustomMaterialModule

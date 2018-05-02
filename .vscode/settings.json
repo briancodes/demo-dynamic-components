@@ -4,7 +4,7 @@
       "node_modules/": true,
       ".vscode/": false,
       // Project Files
-      "tsconfig.json": true,
+      "tsconfig.json": false,
       "tslint.json": true,
       "tslint-base.json": true,
       "protractor.conf.js": true,
@@ -12,18 +12,18 @@
       "package-lock.json": true,
       "karma.conf.js": true,
       ".editorconfig": true,
-      ".gitignore": true,
+      ".gitignore": false,
       ".angular-cli.json": true,
       // src folder config files
-      "src/tsconfig.app.json": true,
+      "src/tsconfig.app.json": false,
       "src/tsconfig.spec.json": true,
-      "src/typings.d.ts": true,
+      "src/typings.d.ts": false,
       "src/test.ts": true,
       "src/favicon.ico": true,
-      "src/assets":true,
+      "src/assets":false,
       "src/environments":true,
       "src/main.ts":true,
       "src/polyfills.ts":true,
-      "src/styles.scss":true,
+      "src/styles.scss":false,
     }
 }

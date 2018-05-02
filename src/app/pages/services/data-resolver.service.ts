@@ -1,45 +1,36 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { combineLatest } from 'rxjs/observable/combineLatest';
-import { filter } from 'rxjs/operators/filter';
 import { first } from 'rxjs/operators/first';
 import { map } from 'rxjs/operators/map';
-import { AbstractDataApiService, IAccount, IClient } from '../../data-api/data-api.service';
+import { MarkedHTMLPipe } from '../pipes/marked-html.pipe';
+import { AbstractHttpDataService } from './http-data.service';
 
 export interface IResolvedData {
-  clients: IClient[];
-  accounts: IAccount[];
+  markedHtml: string;
 }
 
 @Injectable()
 export class DataResolverService implements Resolve<IResolvedData> {
 
-  constructor(private dataServcie: AbstractDataApiService) {
+  constructor(
+    private markedPipe: MarkedHTMLPipe,
+    private dataService: AbstractHttpDataService
+  ) {
 
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IResolvedData> {
-
-    const clients$ = this.dataServcie.getClients();
-    const accounts$ = this.dataServcie.getAccounts();
-
-    const combine$ = combineLatest(clients$, accounts$,
-      (clients, accounts) => {
-        return <IResolvedData>{ clients, accounts };
-      })
+    const url = '/assets/markdown.md';
+    return this.dataService.getMarkdown(url)
       .pipe(
-        filter((value, index) => {
-          console.log('Resolver Filter: ', value);
-          return (value.clients && value.accounts) ? true : false;
+        map(markdownString => {
+          const html = markdownString && this.markedPipe.transform(markdownString) || '';
+          const data = { markedHtml: html };
+          return data;
         }),
-        map(value => {
-          console.log('Resolver Map & Complete:', value);
-          return value;
-        }),
-        first()
+        first() // HttpClient triggers complete, but not sure of error situation (don't want to prevent navigation)
       );
-    return combine$;
   }
 
 }
