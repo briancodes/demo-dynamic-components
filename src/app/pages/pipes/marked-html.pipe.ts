@@ -10,7 +10,7 @@ export class MarkedHTMLPipe implements PipeTransform {
     private defaultOptions: marked.MarkedOptions = {};
 
     constructor() {
-        this.applyDefaultOptions();
+        // this.applyDefaultOptions();
     }
 
     /**
