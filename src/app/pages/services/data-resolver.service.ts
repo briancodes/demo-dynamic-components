@@ -8,6 +8,7 @@ import { AbstractHttpDataService } from './http-data.service';
 
 export interface IResolvedData {
   markedHtml: string;
+  markdownString: string;
 }
 
 @Injectable()
@@ -26,7 +27,7 @@ export class DataResolverService implements Resolve<IResolvedData> {
       .pipe(
         map(markdownString => {
           const html = markdownString && this.markedPipe.transform(markdownString) || '';
-          const data = { markedHtml: html };
+          const data = { markedHtml: html, markdownString};
           return data;
         }),
         first() // HttpClient triggers complete, but not sure of error situation (don't want to prevent navigation)

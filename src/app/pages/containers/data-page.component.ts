@@ -15,6 +15,7 @@ import { IResolvedData } from '../services/data-resolver.service';
     .main {
       margin-left: 10px;
     }
+
   `]
 })
 export class DataPageComponent implements OnInit {

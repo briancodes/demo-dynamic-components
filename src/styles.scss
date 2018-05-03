@@ -4,10 +4,23 @@
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Bungee');
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
 body {
     font-family: 'Nunito', sans-serif;
     background: #303030;
     color: rgba(255, 255, 255, 0.7);
+}
+
+html, html * {
+  box-sizing: border-box;
+}
+
+a {
+  color: #8080e2;
 }
 
 h1,

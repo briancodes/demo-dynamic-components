@@ -7,6 +7,8 @@ import { DataPageComponent } from './containers/data-page.component';
 import { MarkedHTMLPipe } from './pipes/marked-html.pipe';
 import { TrustedHtmlPipe } from './pipes/trusted-html.pipe';
 import { HttpDataService, AbstractHttpDataService } from './services/http-data.service';
+import { AnchorComponent } from './components/anchor.component';
+import { ComponentCreatorService } from './services/component-creator.service';
 
 @NgModule({
   imports: [
@@ -17,10 +19,15 @@ import { HttpDataService, AbstractHttpDataService } from './services/http-data.s
     HomePageComponent,
     DataPageComponent,
     MarkedHTMLPipe,
-    TrustedHtmlPipe
+    TrustedHtmlPipe,
+    AnchorComponent
   ],
   providers: [
-    { provide: AbstractHttpDataService, useClass: HttpDataService}
+    { provide: AbstractHttpDataService, useClass: HttpDataService},
+    ComponentCreatorService
+  ],
+  entryComponents: [
+    AnchorComponent
   ]
 })
 export class PagesModule { }
