@@ -13,7 +13,9 @@ import { IResolvedData } from '../services/data-resolver.service';
   `,
   styles: [`
     .main {
-      margin-left: 10px;
+      padding: 10px;
+      max-width: 750px;
+      margin: 0 auto;
     }
 
   `]

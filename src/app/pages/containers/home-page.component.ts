@@ -15,20 +15,23 @@ import { isPlatformBrowser } from '@angular/common';
     <div class="main">
       <h2>Home Page</h2>
 
-      <h3>Rendered with Dynamically Inserted Link Components</h3>
-      <div #renderedDivContainer [innerHTML]="markdownHTML | trustedHTML"></div>
+      <h3>Result: Dynamically Inserted Link Components</h3>
+      <div #renderedDivContainer class="render-div" [innerHTML]="markdownHTML | trustedHTML"></div>
 
-      <h3>Original Markdown String</h3>
+      <h3>1. Original Markdown String</h3>
       <pre><code>{{markdownString}}</code></pre>
-      <h3>Generated HTML</h3>
+      <h3>2. marked.js Generated HTML</h3>
       <pre><code>{{markdownHTML}}</code></pre>
-      <h3>HTML Dynamic Components</h3>
+      <h3>3. HTML Dynamic Components</h3>
       <pre><code>{{renderedHtml}}</code></pre>
     </div>
   `,
   styles: [`
     .main {
       padding: 10px;
+      padding-bottom: 15px;
+      max-width: 750px;
+      margin: 0 auto;
     }
     pre {
       width: 100%;
@@ -36,6 +39,11 @@ import { isPlatformBrowser } from '@angular/common';
       padding: 5px 5px;
       background-color: #f0f0f0;
       color: black;
+    }
+    .render-div {
+      border: 2px solid #c2185b;
+      border-radius: 6px;
+      padding: 5px;
     }
   `]
 })
@@ -62,7 +70,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.data
       .subscribe((data: { resolvedData: IResolvedData }) => {
-        console.log('Home Page, route.data.subscribe: ', data.resolvedData);
         this.markdownHTML = data.resolvedData.markedHtml;
         this.markdownString = data.resolvedData.markdownString;
       });

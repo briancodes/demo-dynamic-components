@@ -10,6 +10,7 @@ export class MarkedHTMLPipe implements PipeTransform {
   private defaultOptions: marked.MarkedOptions = {};
 
   constructor() {
+    // Disabling for demo purposes
     // this.applyDefaultOptions();
   }
 
@@ -40,6 +41,7 @@ export class MarkedHTMLPipe implements PipeTransform {
   }
 
   private applyDefaultOptions() {
+    // Native links will open in new tab
     this.renderer.link = function (href, title, text) {
       title = title || href;
       return `<a target="_blank" rel="noopener" href="${href}" title="${title}">${text}</a>`;
